@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css?family=Overpass&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,400i&display=swap');
+
+:root {
+  
+  --policeTitreImage: 'Lobster', cursive;
+  --policeSerif: 'EB Garamond', serif;
+  --policeSansSerif: 'Overpass', sans;
+  --policeH1: 'Lobster',  serif;
+
+  --bodyCouleurFond:#ffffff;
+  --texture:radial-gradient(#737ca1 15%, #4863a0 16%) 8px 8px,
+  radial-gradient(#98afc7 15%, #15317e 10%) 8px 8px;
+  --textureH2: radial-gradient(#737ca1 16%, #4863a0 15%) 8px 8px,
+  radial-gradient(#98afc7 10%, #15317e 15%) 8px 8px;
+  --textureTaille: 8px 8px;
+  --textureTaille2: 3px 3px;
+  --enteteCouleurFond:rgba(50,80,255,0.25);
+  --enteteBordureTaille:0.125em;
+  --enteteBordureCouleur:rgba(40,40,40,1);
+  
+  --h1Police: var(--policeH1);
+  --h1PoliceTaille: 4.5em;
+  --h1LetterSpacing: 0.25em;
+  --h1Margin: 0.25em 0 0 0;
+  --h1TextShadow: 4px -2px 0px #ffffff, 3px -1px 0px rgba(0,0,0,0.2);
+  --h1CouleurTexte: rgba(50,50,255,.05);
+  --h1HoverCouleur:rgba(0,0,255,0.05);
+  --h1HoverTextShadow: 3px -1px 0px rgba(0,0,0,0.4), 4px -2px 0px #f8f8f8;
+
+  --h2Police: var(--policeSansSerif);
+  --h2PoliceTaille: 0.95rem;
+  --h2Couleur: rgba(0,0,0,0.85);
+  --h2TextShadow: 1px -1px 0  rgba(255,255,255,.6);
+
+  --bordureRayon:8px;
+  
+  --boutonPolice:var(--policeSansSerif);
+  --boutonTexteCouleur:#ffffff;
+  --boutonFond: rgba(50,80,255,0.85);
+  --boutonCouleurBordure:#ffffff;
+  --boutonBordureRayon:var(--bordureRayon);
+  --boutonHoverCouleurTexte:#121212;
+  --boutonHoverCouleurFond:#ffffff;
+  --boutonHoverCouleurBordure:#1f8500;
+  --boutonActifCouleurTexte: #121212;
+  --boutonActifCouleurFond: #ffffff;
+  --boutonActifCouleurBordure: rgba(0,0,0,.15);
+  --boutonActifBoxShadow: 1px 3px 2px rgba(0,0,0,.85);
+  --boutonBoxShadow: var(--boutonActifBoxShadow);
+
+  --cadreFond: #feffff;
+  --cadreBordure:  rgba(40,40,40,.75);
+  --cadreTitreCouleur: #303030;
+  --dlBordureCouleur: var(--boutonFond);
+
+  --labelCouleur:#ffffff;
+
+  --inputCouleur: #ffffff;
+  --inputCouleurFond:rgba(50,80,255,0.5);
+  --inputFocusTexte:#202020;
+  --inputFocusFond:#ffffff;
+
+  --formulaireBoutonInactifFond: rgba(50,80,255,0.8);
+  --formulaireBoutonInactifBordure: #ffffff;
+  --formulaireBoutonHoverCouleur: #202020;
+  --formulaireBoutonHoverFond: #ffffff;
+  --formulaireBoutonHoverBordure: rgba(50,80,255,0.5);
+
+  --formulaireSelectFond:#feffff;
+  --formulaireSelectHoverCouleur : #ffffff;
+  --formulaireSelectHoverFond: rgba(50,80,255,0.8);
+  --formulaireSelectHoverBordure: #98afc7;
+
+  --formulaireSelectOption:#202020;
+  --formulaireSelectOptionFond:#ffffff;
+
+  --formulaireSelectDisabledOption: #ffffff;
+  --formulaireSelectDisabledOptionFond: #202020;
+}
+
+*, *:before, *:after {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  font-size:100%;
+}
+
+body {
+  margin:0.625em;
+  background:var(--bodyCouleurFond);
+}
+
+header#entete {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:space-between;
+  padding:0 0.5em;
+  background:var(--texture);
+  background-color:var(--enteteCouleurFond);
+  background-size:var(--textureTaille);
+  border: var(--enteteBordureTaille) solid var(--enteteBordureCouleur);
+  border-radius:8px;
+}
+
+header#entete h1 {
+  font-family:var(--h1Police);
+  font-size:var(--h1PoliceTaille);
+  text-align:center;
+  letter-spacing:var(--h1LetterSpacing);
+  text-shadow:2px -2px 0px #ffffff, 4px -2px 0px rgba(1,1,1,0.25), 4px 0px 0px rgba(1,1,1,0.15), 0px 3px 1px rgba(1,1,1,0.45), 5px 5px 0 rgba(1,1,1,.5), 6px 4px 0 rgba(0,0,0,.25);
+  color:var(--h1CouleurTexte);
+  margin: var(--h1Margin);
+  transition:all 1s ease-out;  
+}
+
+header#entete h1:hover{
+  color:var(--h1HoverCouleur);
+  text-shadow:var(--h1HoverTextShadow);
+  letter-spacing:0.05em;
+  transform: scale(0.99,1.01) scale(1.01,0.99) scale(0.99,1.01);
+  transform-origin:left;
+}
+
+header#entete nav#boussole {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom:0.75em;
+  grid-gap: 0.125em;
+}
+
+header#entete nav#boussole button {
+  font-family: var(--boutonPolice);
+  font-size:1em;
+  text-align:center;
+  letter-spacing: 0.1em;
+  color:var(--boutonTexteCouleur);
+  background: var(--boutonFond);
+  margin:0.3em;
+  padding: 0.5em 0.125em;
+  border-radius:var(--boutonBordureRayon);
+  cursor:pointer;
+  outline:none;
+  transition: all 0.75s ease-out;
+  box-shadow: var(--boutonBoxShadow);
+}
+
+header#entete nav#boussole button:hover {
+  color:var(--boutonHoverCouleurTexte);
+  background:var(--boutonHoverCouleurFond);
+  border-color:var(--boutonHoverCouleurBordure);
+}
+
+header#entete nav#boussole button.actif {
+  color: var(--boutonActifCouleurTexte);
+  background: var(--boutonActifCouleurFond);
+  border-color: var(--boutonActifCouleurBordure);
+  box-shadow: var(--boutonActifBoxShadow);
+}
+
+footer#basDePage {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  border-radius:0.25em;
+  border:0.125em solid var(--enteteBordureCouleur);
+  margin:0.75em 0 0.125em 0;
+  background: var(--textureH2);
+  background-color:var(--enteteCouleurFond);
+  background-size:var(--textureTaille);
+}
+
+footer#basDePage h2 {
+  font-family:var(--h2Police);
+  font-size: var(--h2PoliceTaille);
+  text-align:center;
+  margin:0.125em;
+  padding:0.625em;
+  color:var(--h2Couleur);
+  text-shadow: var(--h2TextShadow);
+}
+
+main#principal {
+  margin-top:0.3125em;
+  margin-bottom: 0.35em;
+  display:flex;
+  align-items:center;
+  padding-top:0.5em;
+}
+
+/* Images et textes */
+div.cadre {
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  border-radius: 0.625em;
+  padding-bottom: 0.9375em;
+  margin:0.125em;
+  background: var(--cadreFond);
+  border: 2px solid  var(--cadreBordure);
+}
+
+img {
+  display:block;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-bottom: 0.125em solid var(--cadreBordure);
+  width:100%;  
+}
+
+.disparitionPortraitDescriptif {
+  display:none;
+}
+
+p.titre {
+  font-family:var(--policeTitreImage);
+  font-size:1.2em;
+  text-align:center;
+  padding:0.625em;
+  color:var(--cadreTitreCouleur);
+  text-shadow: rgba(255,255,255,.1) -.0625em -0.0625em 0.625em, rgba(0,0,0,.5), 0.0625em 0.0625em 0.0625em;  
+}
+
+p.titreDescription {
+  font-family: var(--policeTitreImage);
+  font-size:1.25em;
+  text-align:center;
+  padding:0.625em;
+  color:var(--cadreTitreCouleur);
+  text-shadow:rgba(255,255,255,.1) -0.0625em -0.0625em 0.0625em, rgba(0,0,0,.5) 0.0625em 0.0625em 0.0625em;
+  margin-top:1em;
+  margin-bottom:0.5em;
+}
+
+p.instructions, p.ingredients, p.quantites {
+  font-family:var(--policeSerif);
+  font-size:1em;
+  text-align:justify;
+  margin:0.3125em;
+}
+
+p.categorie, p.section {
+  font-family:var(--policeSerif);
+  font-weight:bold;
+  font-size:1em;
+  text-align:center;
+}
+
+/* Onglet [quotidien] */
+#quotidien {
+  width:98vw;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap:0.625em;
+}
+
+/* Onglet [par initiale] */
+#parIndex {
+  width:98vw;
+}
+
+#parIndex > article#header {
+  border-radius:0.25em;
+  border:0.125em solid var(--cadreFond);
+  padding:0.625em;
+  margin-bottom:0.625em;
+  display:inline-block;
+  max-width:98vw;
+  background:var(--texture);
+  background-size:var(--textureTaille2);
+
+}
+
+#parIndex > article#header form {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+  align-items: stretch;
+  flex:1;
+  border:0.125em solid var(--cadreFond);
+  padding:0.5em;
+  border-radius:0.25em;
+  background:var(--texture);
+  background-color:var(--enteteCouleurFond);
+  background-size:var(--textureTaille2);
+}
+
+#parIndex > article#header label {
+  flex-grow:1;
+  font-family:var(--policeSansSerif);
+  border-radius:0.25em;
+  padding:0 0.3em;
+  margin: 0 0.25em;
+  align-self:center;
+  color:var(--labelCouleur);
+}
+
+#parIndex > article#header input[type="search"] {
+  flex-grow:1;
+  text-transform:uppercase;
+  text-align:center;
+  height:2em;
+  color:var(--inputCouleur);
+  background:var(--inputCouleurFond);
+  border-radius: 0.15em;
+  border:0.125em solid var(--cadreFond);
+  appearance:none;
+}
+
+#parIndex > article#header input[type="search"]:focus {
+  color:var(--inputFocusTexte);
+  background-color:var(--inputFocusFond);
+}
+
+#parIndex article#contenant {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap:0.25em;
+  grid-auto-flow:dense;
+}
+
+#parIndex article#affichage {
+  margin:0.125em;
+}
+
+#parIndex div.cadre {
+  cursor:pointer;
+}
+
+/* Onglet [sans alcool] */
+#sansAlcool {
+  width:98vw;
+}
+
+#sansAlcool article#affichage {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap:0.25em;
+  grid-auto-flow:dense;
+}
+
+#sansAlcool article#affichage {
+  margin:0.125em;
+}
+
+#sansAlcool div.cadre {
+  cursor:pointer;
+}
+
+/* Onglet [par nom]/[par ingredient] */
+#parNom, #parIngredient {
+  width:98vw;
+}
+
+#parNom > article#header,
+#parIngredient > article#header{
+  border-radius:0.125em;
+  border:0.125em solid var(--cadreFond);
+  padding:0.625em;
+  margin-bottom:0.625em;
+  display:inline-block;
+  border-radius:0.25em;
+  max-width:98vw;
+  background:var(--texture);
+  background-color:var(--enteteCouleurFond);
+  background-size:var(--textureTaille2);
+}
+
+#parNom > article#header form,
+#parIngredient > article#header form {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around; 
+  align-items: stretch;
+  flex:1;
+  border:0.125em solid var(--cadreFond);
+  padding:0.5em;
+  border-radius:0.25em;
+}
+
+#parNom > article#header label,
+#parIngredient > article#header label {
+  flex-grow:1;
+  font-family:var(--policeSansSerif);
+  font-size:inherit;
+  border-radius:0.25em;
+  padding:0 0.3em;
+  margin: 0 0.25em;
+  text-align:center;
+  align-self:center;
+  color:var(--labelCouleur);
+}
+
+#parNom > article#header input[type="search"] {
+  flex-grow:1;  
+  font-family: var(--policeSansSerif);
+  text-align:center;
+  appearance:none;
+  color: var(--inputCouleur);
+  background:var(--couleurFondElement1);
+  border-radius: 5px;
+  border:0.125em solid var(--cadreFond);
+  padding:0 0.3em;
+  width:16em;
+  flex:1;
+}
+
+#parNom > article#header input[type="search"]:focus {
+  color:var(--inputFocusTexte);
+  background-color:var(--inputFocusFond);
+}
+
+#parNom > article#header button {
+  font-family: var(--policeSansSerif);
+  padding:0.5em 1em;
+  margin-left: 0.3em;
+  border-radius: 5px;
+  cursor:pointer;
+  outline:none;
+  text-decoration:none;
+  color:var(--boutonTexteCouleur);
+  background: var(--formulaireBoutonInactifFond);
+  border:0.125em solid var(--formulaireBoutonInactifBordure);
+  transition: all 0.250s ease-in;
+}
+
+#parNom > article#header button:hover {
+  color: var(--formulaireBoutonHoverCouleur);
+  background:var(--formulaireBoutonHoverFond);
+  border-color:var(--formulaireBoutonHoverBordure);
+}
+
+#parNom > article#header select,
+#parIngredient > article#header select {
+  flex-grow:1;  
+  cursor:pointer;
+  appearance:none;
+  font-family: var(--policeSansSerif);
+  background: var(--formulaireSelectFond);
+  font-size:inherit;
+  padding: 5px 5px 0 10px;
+  margin: 0 10px;
+  outline:none;
+  border-radius:4px;
+}
+
+#parNom > article#header select:active,
+#parIngredient > article#header select:active {
+  color:var(--formulaireSelectActiveCouleur);
+  background:var(--formulaireSelectActiveFond);
+  border-color:var(--formulaireSelectActiveBordure);
+}
+
+
+
+#parNom > article#header select:hover,
+#parIngredient > article#header select:hover {
+  color:var(--formulaireSelectHoverCouleur);
+  background:var(--formulaireSelectHoverFond);
+  border-color:var(--formulaireSelectHoverBordure);
+}
+
+#parNom > article#header option,
+#parIngredient > article#header option {
+  color:var(--formulaireSelectOption);
+  background-color: var(--formulaireSelectOptionFond);
+  appearance:none;
+  padding: 0.35em;
+}
+
+#parNom article#contenant,
+#parIngredient article#contenant {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap:0.25em;
+  grid-auto-flow:dense;
+}
+
+#parNom article#affichage,
+#parIngredient article#affichage {
+  margin:0.125em;
+}
+
+/* Onglet [notes] */
+#notes {
+  width:98vw;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap:0.625em;
+}
+
+#notes dl {
+  margin-top:0.125em;
+  margin-bottom:0.125em;
+  margin-left:0.25em;
+  border-left:5px solid var(--dlBordureCouleur);
+  padding-left:0.5em;
+}
+
+#notes dt{
+  font-size:1em;
+  font-family:var(--policeSansSerif);
+  font-weight:bold;
+  text-align:left;
+  padding-left:0.25em;
+  margin-top:0.5em;
+}
+
+#notes dd {
+  font-size:1em;
+  font-family:var(--policeSansSerif);
+  text-align:justify;
+  padding-left:0.25em;
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --h1PoliceTaille: 2.5em;
+    --h1LetterSpacing: 0.15em;
+    --h1Margin: 0.35em 0 0.25em 0;
+  }
+
+  header#entete h1:hover{
+  }
+  
+}
